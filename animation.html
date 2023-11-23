@@ -6,20 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- A-Frame を読み込む -->
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <!-- AR.js を読み込む -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
   <body>
 	<a-scene vr-mode-ui="enabled: false">
-	  <a-sky color="skyblue"></a-sky>
-	  <a-box
-	    id="box"
-	    position="0 0 -5"
-	    color="white"
- 	   animation="property: rotation; from: 0 0 0; to: 0 360 360; dur: 3000; loop: true; easing: linear; startEvents: btnPush"
- 	  ></a-box>
-          <button id="btn" class="btn">🍰</button>
- 	<a-entity camera></a-entity>
+  	<a-sky color="skyblue"></a-sky>
+  	<a-box
+   	 id="box"
+   	 position="0 0 -5"
+   	 color="white"
+   	 animation="property: rotation; from: 0 0 0; to: 0 360 360; dur: 3000; loop: true; easing: linear;"
+  	></a-box>
+  	<a-entity camera></a-entity>
 	</a-scene>
   </body>
 </html>
