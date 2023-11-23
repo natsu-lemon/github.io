@@ -9,16 +9,22 @@
     <script src="./index.js"></script>
   </head>
   <body>
-	<a-scene vr-mode-ui="enabled: false">
-  	<a-sky color="skyblue"></a-sky>
+　　　<a-scene vr-mode-ui="enabled: false">
+  	
+	<button
+	 id="btn" 
+ 	 class = "btn"
+	 style="position: absolute; top: 10px; left: 10px; font-size: 24px;"
+         >🍰</button>
+	
   	<a-box
    	 id="box"
    	 position="0 0 -5"
    	 color="white"
    	 animation="property: rotation; from: 0 0 0; to: 0 360 360; dur: 3000; loop: true; easing: linear; startEvents: btnPush;"
   	></a-box>
+	 <a-sphere position="0 0 -5" radius="1.25" color="#EF2D5E"></a-sphere>
   	<a-entity camera></a-entity>
-	<button id="btn" class="btn">🍰</button>
-	</a-scene>
+     </a-scene>
   </body>
 </html>
