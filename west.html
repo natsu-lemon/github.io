@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- A-Frame を読み込む -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    
+  </head>
+
+  <body style="margin: 0; overflow: hidden">
+	  
+    <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
+    <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
+	    
+      <!-- 3DCGモデルを読み込む -->
+      <a-assets>
+        <a-asset-item id="whale" src="./whale_asset/whale.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- マーカーの.pattファイルを読み込む -->
+      <a-marker type="pattern" url="./whale_asset/pattern-marker_hero.patt">
+        <!-- 3Dモデルを呼び出す -->
+        <a-entity gltf-model="#whale"></a-entity>
+      </a-marker>
+
+      <!-- カメラを追加 -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
