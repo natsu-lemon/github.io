@@ -1,23 +1,38 @@
 <!DOCTYPE HTML>
 <html>
-	<head>	
-		<meta charset="utf-8" />
-		<title>Simple HTML</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- LOAD Tone.js from unpkg -->
-		<script src="https://unpkg.com/tone"></script>
-		<script>
-			function playNote() {
-				// create a synth
-				const synth = new Tone.Synth().toDestination();
-				// play a note from that synth
-				synth.triggerAttackRelease("C4", "8n");
-			}
-		</script>
+<head>    
+    <meta charset="utf-8" />
+    <title>Automatic Music with Tone.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- LOAD Tone.js from unpkg -->
+    <script src="https://unpkg.com/tone"></script>
+    <script>
+        // Initialize Tone.js
+        Tone.start();
 
-	</head>
-	<body>
-		<h1>Simple HTML5 Tone.js Demo</h1>
-		<button onclick="playNote()">Click me to play note!</button>
-	</body>
+        // Create a new synth
+        const synth = new Tone.Synth().toDestination();
+
+        // Define the melody
+        const melody = [
+            { note: "C4", duration: "4n" },  // C4 Quarter Note
+            { note: "D4", duration: "4n" },  // D4 Quarter Note
+            { note: "E4", duration: "4n" },  // E4 Quarter Note
+            { note: "F4", duration: "4n" }   // F4 Quarter Note
+        ];
+
+        // Function to play the melody
+        function playMelody() {
+            let time = Tone.now(); // Get the current time
+            melody.forEach(note => {
+                synth.triggerAttackRelease(note.note, note.duration, time);
+                time += Tone.Time(note.duration).toSeconds(); // Update time for the next note
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Automatic Music with Tone.js</h1>
+    <button onclick="playMelody()">Play Melody</button>
+</body>
 </html>
