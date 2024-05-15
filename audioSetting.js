@@ -7,7 +7,7 @@ let isPlaying = false;
 
 // 音源を取得しAudioBuffer形式に変換して返す関数
 async function setupSample() {
-  const response = await fetch("../audioFile/eejyanaika.mp3");
+  const response = await fetch("./audioFile/eejyanaika.mp3");
   const arrayBuffer = await response.arrayBuffer();
   // Web Audio APIで使える形式に変換
   const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
