@@ -7,7 +7,10 @@ const audioElement = document.querySelector("audio");
 const track = ctx.createMediaElementSource(audioElement);
 
 // artoolkitのコンテキストを作成
-var arToolkitContext = new THREEx.ArToolkitContext();
+var arToolkitContext = new THREEx.ArToolkitContext({
+  cameraParametersUrl: 'data/camera_para.dat',
+  detectionMode: 'mono',
+});
 
 
 // ARフレームワークによって提供されるイベントハンドラーを定義
