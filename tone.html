@@ -35,7 +35,7 @@
         // Function to play the melody
         function playMelody() {
             let time = Tone.now(); // Get the current time
-	    let velocity = 0.5;
+	    let velocity = 0;
             melody.forEach(note => {
                 synth.triggerAttackRelease(note.note, note.duration, time, velocity);
                 time += Tone.Time(note.duration).toSeconds(); // Update time for the next note
