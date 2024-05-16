@@ -14,7 +14,7 @@ var renderer = sceneEl.renderer;
 
 
 // artoolkitのコンテキストを作成
-var arToolkitContext = new THREEx.ArToolkitContext({
+var arToolkitContext = new THREE.ArToolkitContext({
   cameraParametersUrl: 'data/camera_para.dat',
   detectionMode: 'mono',
 });
