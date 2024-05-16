@@ -22,14 +22,14 @@
       <a-assets>
         <a-asset-item id="whale" src="../whale_asset/whale.glb"></a-asset-item>
       </a-assets>
-      <audio src="./audioFile/eejyanaika.mp3"></audio>
-
 
       <!-- マーカーの.pattファイルを読み込む -->
       <a-marker id="shige" type="pattern" url="./pattern-shige.patt">
         <!-- 3Dモデルを呼び出す -->
         <a-entity gltf-model="#whale"></a-entity>
-        <script src="playMusic.js"></script>
+        <!--<script src="playMusic.js"></script> -->
+        <audio src="./audioFile/eejyanaika.mp3" class="play"></audio>
+
       </a-marker>      
 
       <!-- カメラを追加 -->

@@ -1,52 +1,19 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 const ctx = new AudioContext();
-
-
 const audioElement = document.querySelector("audio");
 // Web Audio API内で使える形に変換
 const track = ctx.createMediaElementSource(audioElement);
 
-// a-scene要素を取得
-var sceneEl = document.querySelector('a-scene');
-
-// Three.js のレンダラーオブジェクトを取得
-var renderer = sceneEl.renderer;
-
-
-// artoolkitのコンテキストを作成
-var arToolkitContext = new THREE.ArToolkitContext({
-  cameraParametersUrl: 'data/camera_para.dat',
-  detectionMode: 'mono',
-});
-
-
-// ARフレームワークによって提供されるイベントハンドラーを定義
-arToolkitSource.onResize = function() {
-    arToolkitSource.onResizeElement();
-    arToolkitSource.copyElementSizeTo(renderer.domElement);
-    if (arToolkitContext.arController !== null) {
-        arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
+document.querySelector("#shige").addEventListener("click", () => {
+    if (ctx.state === "suspended") {
+      ctx.resume();
     }
-};
-
-// ARフレームワークによって提供されるコールバックを定義
-arToolkitContext.arController.addEventListener('markerFound', function(event) {
-    // マーカーが見つかったときの処理
-    if (event.data.markerId === 'shige') {
-        // #shigeマーカーが認識されたときの処理をここに記述する
-        if (ctx.state === "suspended") {
-            ctx.resume();
-        }
-  	// 出力につなげる
-  	track.connect(ctx.destination);
-  	audioElement.play();
-    }
-});
-
-arToolkitContext.arController.addEventListener('markerLost', function(event) {
-    // マーカーが見失われたときの処理
-    if (event.data.markerId === 'shige') {
-        // #shigeマーカーが見失われたときの処理をここに記述する
-        audioElement.pause();
-    }
-});
+    // 出力につなげる
+    track.connect(ctx.destination);
+    audioElement.play();
+  });
+  
+  // audioElementを一時停止する
+  document.querySelector("#pause").addEventListener("click", () => {
+    audioElement.pause();
+  });
