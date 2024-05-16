@@ -9,31 +9,33 @@
     <!-- AR.js を読み込む -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     
-    <title>west</title>
+    
   </head>
+
+
   <body style="margin: 0; overflow: hidden">
 	  
     <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
-    <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
-	
-          
+    <a-scene 
+      embedded 
+      arjs 
+      vr-mode-ui="enabled: false;" 
+      renderer="logarithmicDepthBuffer: true;"
+    >   
       <!-- 3DCGモデルを読み込む -->
       <a-assets>
-        <a-asset-item id="whale" src="../whale_asset/whale.glb"></a-asset-item>
+        <a-asset-item id="whale" src="../whale_asset/whale.glb" scale="0.5 0.5 0.5"></a-asset-item>
         <audio id="audio01" src="../audioFile/eejyanaika.mp3" preload="auto"></audio>
       </a-assets>
 
       <!-- マーカーの.pattファイルを読み込む -->
       <a-marker id="shige" type="pattern" url="./pattern-shige.patt">
-        <!-- 3Dモデルを呼び出す -->
-        <a-entity gltf-model="#whale"></a-entity>
-        <a-sound id="audio01" src="../audioFile/eejyanaika.mp3" preload="auto" autoplay="true" loop="false"></a-sound>
-        <!--<script src="playMusic.js"></script> -->
-        
-
+        <a-entity 
+          gltf-model="#whale"
+          sound="audio01"
+        ></a-entity>
       </a-marker>      
 
-      <!-- カメラを追加 -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
