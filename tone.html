@@ -8,41 +8,7 @@
     <script src="https://unpkg.com/tone"></script>
     <script src="./audioSetting.js"></script>
 
-    <script>
-        // Initialize Tone.js
-        Tone.start();
-
-        // Create a new synth
-        const synth = new Tone.Synth().toDestination();
-
-        // Define the melody
-        const melody = [
-            { note: "G4", duration: "8n" },  // C4 Quarter Note
-	    { note: "G4"  , duration: "1n" },
-            { note: "A4", duration: "8n" },  // D4 Quarter Note
-            { note: "G4", duration: "8n" },  // E4 Quarter Note
-            { note: "F4", duration: "8n" },  // F4 Quarter Note
-	    { note: "F4", duration: "2n" }
-	    //{ note: "A4", duration: "4n" },
-	    //{ note: "A4", duration: "4n" },
-	    //{ note: "A4", duration: "4n" },
-	    //{ note: "A4", duration: "4n" },
-	    //{ note: "A4", duration: "4n" },
-	    //{ note: "A4", duration: "4n" },
-	    //{ note: "A4", duration: "4n" }
-        ];
-
-        // Function to play the melody
-        function playMelody() {
-            let time = Tone.now(); // Get the current time
-	    let velocity = 0;
-            melody.forEach(note => {
-                synth.triggerAttackRelease(note.note, note.duration, time, velocity);
-                time += Tone.Time(note.duration).toSeconds(); // Update time for the next note
-            });
-        }
-    </script>
-</head>
+    </head>
 <body>
     <h1>Automatic Music with Tone.js</h1>
     <button onclick="playMelody()">Play Melody</button>
