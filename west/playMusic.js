@@ -6,6 +6,13 @@ const audioElement = document.querySelector("audio");
 // Web Audio API内で使える形に変換
 const track = ctx.createMediaElementSource(audioElement);
 
+// a-scene要素を取得
+var sceneEl = document.querySelector('a-scene');
+
+// Three.js のレンダラーオブジェクトを取得
+var renderer = sceneEl.renderer;
+
+
 // artoolkitのコンテキストを作成
 var arToolkitContext = new THREEx.ArToolkitContext({
   cameraParametersUrl: 'data/camera_para.dat',
